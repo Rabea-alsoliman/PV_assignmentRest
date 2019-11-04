@@ -21,5 +21,5 @@ Validate the endpoints request body with appropriate error messages and status c
 ## Usage
 
 To run the project, please use a command line the following:
- - node app.js
+ - npm start
     - It will run the server at port 3001
