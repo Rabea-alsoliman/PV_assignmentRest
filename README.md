@@ -1,4 +1,4 @@
-# PV_assignmentRest
+﻿# PV_assignmentRest
 
 ## Task1
 build API endpoints (RESTful API) for the a model named ‘user’, those endpoints
@@ -18,8 +18,11 @@ the file shouldn’t exceed
 ## Task2
 Validate the endpoints request body with appropriate error messages and status codes.
 
+## Task3
+Build an point protected by jwt authentication to let the user change his/her own profile data.
+
 ## Usage
 
 To run the project, please use a command line the following:
- - node app.js
+ - npm start
     - It will run the server at port 3001

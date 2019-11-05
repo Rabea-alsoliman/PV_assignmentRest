@@ -3,12 +3,12 @@ const bodyParser = require('body-parser');
 const logger =require('morgan');
 const mongoose = require('mongoose');
 
-
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/PV-restAssignment1')
 
 // Import routes modules
 const users = require('./routes/users.route');
+const auth = require('./routes/auth.route');
 
 const app = express();
 app.use((req, res, next) => {
@@ -24,12 +24,14 @@ app.use((req, res, next) => {
     }
 });
 
-
 // Middlewares
 app.use(logger('dev'));
 app.use(bodyParser.json());
-// Roures 
+// Roures
+
 app.use('/users', users);
+app.use('/auth', auth);
+//app.use('/auth', auth);
 
 
 // Catch 404 Errors and forward then to error handler 

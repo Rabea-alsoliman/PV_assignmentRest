@@ -1,5 +1,5 @@
 const Joi = require('joi');
-
+const crypto = require('crypto');
 
 module.exports = {
     validateParam: (schema, name) => {
@@ -27,9 +27,13 @@ module.exports = {
     validateBody: (schema) => {
         return(req, res, next) => {
 
-            console.log('req.body:', req.body);
+            if (req.body.password) {
+                let salt = crypto.randomBytes(16).toString('base64');
+                let hash = crypto.createHmac('sha512', salt).update(req.body.password).digest("base64");
+                req.body.password = salt + "$" + hash;
+            }
             if (req.file) {req.body.userImg = req.file.path}
-            console.log('req.body:', req.body);
+            //console.log('req.body:', req.body);
             const result = Joi.validate(req.body, schema);
 
             if (result.error) {
