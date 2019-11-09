@@ -21,6 +21,9 @@ Validate the endpoints request body with appropriate error messages and status c
 ## Task3
 Build an point protected by jwt authentication to let the user change his/her own profile data.
 
+## Task4
+Write unit tests for each module
+
 ## Usage
 
 To run the project, please use a command line the following:

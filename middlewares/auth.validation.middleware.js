@@ -1,22 +1,22 @@
 const jwt = require('jsonwebtoken'),
-    secret = require('../helpers/env.config').jwt_secret,
-    crypto = require('crypto');
+  secret = require('../helpers/env.config').jwt_secret,
+  crypto = require('crypto');
 
 exports.validJWTNeeded = (req, res, next) => {
-    if (req.headers['authorization']) {
-        try {
-            let authorization = req.headers['authorization'].split(' ');
-            if (authorization[0] !== 'No0ne') {
-                return res.status(401).send();
-            } else {
-                req.jwt = jwt.verify(authorization[1], secret);
-                return next();
-            }
-
-        } catch (err) {
-            return res.status(403).send();
+  if (req.headers['authorization']) {
+    try {
+        let authorization = req.headers['authorization'].split(' ');
+        if (authorization[0] !== 'No0ne') {
+          return res.status(401).send();
+        } else {
+            req.jwt = jwt.verify(authorization[1], secret);
+          return next();
         }
-    } else {
-        return res.status(401).send();
+
+    } catch (err) {
+      return res.status(403).send();
     }
+  } else {
+    return res.status(401).send();
+  }
 };
