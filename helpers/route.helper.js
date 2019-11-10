@@ -56,7 +56,7 @@ module.exports = {
       password: Joi.string().required().min(6), 
       firstName: Joi.string().required().trim(),
       lastName: Joi.string().required().trim(),
-      userImg: Joi.string().required().trim()
+      userImg: Joi.string().trim()
     }),
     userPatchSchema: Joi.object().keys({
       username: Joi.string().trim(),

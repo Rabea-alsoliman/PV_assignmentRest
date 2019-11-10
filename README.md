@@ -1,4 +1,4 @@
-﻿# PV_assignmentRest
+﻿﻿# PV_assignmentRest
 
 ## Task1
 build API endpoints (RESTful API) for the a model named ‘user’, those endpoints
@@ -29,3 +29,6 @@ Write unit tests for each module
 To run the project, please use a command line the following:
  - npm start
     - It will run the server at port 3001
+    
+To run the unit test, please use a command line the following:
+ - npm test
